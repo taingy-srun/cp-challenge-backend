@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @CrossOrigin(origins = "http://localhost:4200/")
+@RestController
 public class LoginController {
 
     private final UserServiceImpl userService;
