@@ -6,6 +6,7 @@
 - Login API
 - CRUD on Employee API
 - Security: using in-memory basic authentication.
+- Included static pages for UI.
 
 
 ## Deploy
