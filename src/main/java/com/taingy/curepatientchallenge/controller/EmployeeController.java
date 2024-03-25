@@ -1,5 +1,7 @@
 package com.taingy.curepatientchallenge.controller;
 
+import com.taingy.curepatientchallenge.controller.response.EmployeeResponse;
+import com.taingy.curepatientchallenge.controller.response.EmployeeResponseMessage;
 import com.taingy.curepatientchallenge.model.Employee;
 import com.taingy.curepatientchallenge.service.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

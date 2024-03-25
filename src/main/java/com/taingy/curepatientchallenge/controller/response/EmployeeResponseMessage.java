@@ -1,4 +1,4 @@
-package com.taingy.curepatientchallenge.controller;
+package com.taingy.curepatientchallenge.controller.response;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -18,4 +18,9 @@ public class EmployeeResponseMessage {
     public String updated;
     @Value("${msg.employee.deleted}")
     public String deleted;
+    @Value("${msg.login.success}")
+    public String loginSuccess;
+    @Value("${msg.login.failed}")
+    public String loginFailed;
+
 }

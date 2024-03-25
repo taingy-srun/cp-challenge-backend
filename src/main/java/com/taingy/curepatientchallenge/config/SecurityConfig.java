@@ -15,6 +15,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
@@ -23,7 +24,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
                         authorizationManagerRequestMatcherRegistry.requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
                                 .requestMatchers("/api/**").hasAnyRole("USER", "ADMIN")
-                                .requestMatchers("/login/**").permitAll()
+                                .requestMatchers("/", "/login/**").permitAll()
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
 
@@ -33,7 +34,7 @@ public class SecurityConfig {
     public UserDetailsService users() {
         UserDetails admin = User.withDefaultPasswordEncoder()
                 .username("admin")
-                .password("123456")
+                .password("admin")
                 .roles("USER", "ADMIN")
                 .build();
         return new InMemoryUserDetailsManager(admin);

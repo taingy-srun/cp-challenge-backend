@@ -1,4 +1,4 @@
-package com.taingy.curepatientchallenge.controller;
+package com.taingy.curepatientchallenge.controller.response;
 
 public class EmployeeResponse {
     private String message;
