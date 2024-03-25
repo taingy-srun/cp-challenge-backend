@@ -5,8 +5,13 @@
 ## Features:
 - Login API
 - CRUD on Employee API
-- Security: using in-memory basic authentication.
+- Search employees by name or ID API
 - Included static pages for UI.
+
+## Technical used:
+- Postgres for Database
+- Using JDBC/JPA connection
+- Using MVC for REST API
 
 
 ## Deploy
