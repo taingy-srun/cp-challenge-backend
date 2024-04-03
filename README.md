@@ -15,4 +15,4 @@
 
 
 ## Deploy
-Run `./mvnw clean package` to build WAR file. Upload WAR file and deploy it on Tomcat Manager.
+Run `mvn clean package` to build WAR file. Upload WAR file and deploy it on Tomcat Manager.

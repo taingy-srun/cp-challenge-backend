@@ -22,6 +22,7 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
                         authorizationManagerRequestMatcherRegistry
+                                .requestMatchers("/api/**").hasAnyRole("")
                                 .requestMatchers("/", "/login").permitAll()
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
