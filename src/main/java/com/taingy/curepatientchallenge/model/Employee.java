@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Employee {
     @Id
     @Column(name = "employee_id")
-    private int employeeId;
+    private Integer employeeId;
     private String name;
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -17,18 +17,18 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int employeeId, String name, String phoneNumber, String supervisors) {
+    public Employee(Integer employeeId, String name, String phoneNumber, String supervisors) {
         this.employeeId = employeeId;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.supervisors = supervisors;
     }
 
-    public int getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
 
