@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    List<Employee> findAllByEmployeeIdOrNameStartsWith(int id, String name);
+    List<Employee> findAllByEmployeeIdOrNameStartsWith(Integer id, String name);
 
     List<Employee> findAllBySupervisors(String supervisor);
 

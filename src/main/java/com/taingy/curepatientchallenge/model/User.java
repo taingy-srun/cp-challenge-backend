@@ -3,7 +3,13 @@ package com.taingy.curepatientchallenge.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
@@ -13,12 +19,4 @@ public class User {
     private String username;
     private String password;
 
-    public User(Integer id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-    }
-
-    public User() {
-    }
 }

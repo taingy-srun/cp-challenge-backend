@@ -17,24 +17,29 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private static String ROLE_ADMIN = "ADMIN";
+    private static String ROLE_USER = "USER";
+    private static String[] ROLE_LIST = {ROLE_ADMIN, ROLE_USER};
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
                         authorizationManagerRequestMatcherRegistry
-                                .requestMatchers("/api/**").hasAnyRole("")
+                                .requestMatchers("/api/**").hasAnyRole(ROLE_LIST)
                                 .requestMatchers("/", "/login").permitAll()
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
+
     @Bean
     public UserDetailsService users() {
         UserDetails admin = User.withDefaultPasswordEncoder()
                 .username("admin")
                 .password("admin")
-                .roles("USER", "ADMIN")
+                .roles(ROLE_USER, ROLE_ADMIN)
                 .build();
         return new InMemoryUserDetailsManager(admin);
     }

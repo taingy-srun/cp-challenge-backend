@@ -1,68 +1,28 @@
 package com.taingy.curepatientchallenge.model;
 
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "employees")
 public class Employee {
     @Id
     @Column(name = "employee_id")
     private Integer employeeId;
+    @NotNull(message = "Employee name is required")
+    @NotEmpty
+    @NotBlank
+    @Column(nullable = false)
     private String name;
     @Column(name = "phone_number")
     private String phoneNumber;
     private String supervisors;
-
-    public Employee() {
-    }
-
-    public Employee(Integer employeeId, String name, String phoneNumber, String supervisors) {
-        this.employeeId = employeeId;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.supervisors = supervisors;
-    }
-
-    public Integer getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getSupervisors() {
-        return supervisors;
-    }
-
-    public void setSupervisors(String supervisors) {
-        this.supervisors = supervisors;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeId=" + employeeId +
-                ", name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", supervisors='" + supervisors + '\'' +
-                '}';
-    }
 }
